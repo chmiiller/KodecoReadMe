@@ -9,18 +9,28 @@ import SwiftUI
 
 extension Book {
     struct Image: View {
+        let image: SwiftUI.Image?
         let title: String
         var size: CGFloat?
+        let cornerRadius: CGFloat
         
         var body: some View {
-            let image = SwiftUI.Image(title: title)
-            ?? SwiftUI.Image(systemName: "book")
-            image
-                .resizable()
-                .scaledToFit()
-                .frame(width: size, height: size)
-                .font(Font.title.weight(.light))
-                .foregroundColor(.secondary.opacity(0.5))
+            if let image = image {
+                image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: size, height: size)
+                    .cornerRadius(cornerRadius)
+            } else {
+                let symbol = SwiftUI.Image(title: title)
+                ?? SwiftUI.Image(systemName: "book")
+                    symbol
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: size, height: size)
+                    .font(Font.title.weight(.light))
+                    .foregroundColor(.secondary.opacity(0.5))
+            }
         }
     }
 }
@@ -51,6 +61,13 @@ struct TitleAndAuthorStack: View {
                 .font(authorFont)
                 .foregroundStyle(.secondary)
         }
+    }
+}
+
+extension Book.Image {
+    /// A preview image
+    init(title: String) {
+        self.init(image: nil, title: title, cornerRadius: .init())
     }
 }
 

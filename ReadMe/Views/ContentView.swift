@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    let library = Library().sortedBooks
+    @State var library = Library()
+
     var body: some View {
         NavigationView {
-            List(library, id: \.title) { item in
-                BookRow(book: item)
+            List(library.sortedBooks, id: \.self) { book in
+                BookRow(book: book, image: $library.images[book])
             }
             .navigationTitle("My Books")
         }
