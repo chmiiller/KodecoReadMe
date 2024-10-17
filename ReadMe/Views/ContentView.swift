@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    let library = Library().sortedBooks
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView {
+            List(library, id: \.title) { item in
+                BookRow(book: item)
+            }
+            .navigationTitle("My Books")
         }
-        .padding()
     }
 }
 
