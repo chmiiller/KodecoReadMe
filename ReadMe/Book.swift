@@ -5,11 +5,13 @@
 //  Created by Carlos Zinato on 17/10/2024.
 //
 
-class Book {
+import Foundation
+
+class Book: ObservableObject {
     let title: String
     let author: String
-    var microReview: String
-    var readMe: Bool
+    @Published var microReview: String
+    @Published var readMe: Bool
     
     init(
         title: String = "Title",
