@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var library = Library()
+    @State var addingNewBook: Bool = false
 
     var body: some View {
         NavigationView {
@@ -16,7 +17,17 @@ struct ContentView: View {
                 BookRow(book: book, image: $library.images[book])
             }
             .navigationTitle("My Books")
+            .toolbar(content: {
+                Button(action: {
+                    addingNewBook = true
+                }, label: {
+                    Image(systemName: "plus.circle").font(.title2)
+                })
+            })
         }
+        .sheet(isPresented: $addingNewBook, content: {
+            NewBookView()
+        })
     }
 }
 

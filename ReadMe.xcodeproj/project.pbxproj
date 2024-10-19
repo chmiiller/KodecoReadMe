@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B34A214B2CC4617300174677 /* NewBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34A214A2CC4617300174677 /* NewBookView.swift */; };
+		B34A214D2CC466BE00174677 /* ReviewAndImageStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34A214C2CC466BE00174677 /* ReviewAndImageStack.swift */; };
 		B37F813A2CC1A0BD00E23BCF /* ReadMeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37F81392CC1A0BD00E23BCF /* ReadMeApp.swift */; };
 		B37F813C2CC1A0BD00E23BCF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37F813B2CC1A0BD00E23BCF /* ContentView.swift */; };
 		B37F813E2CC1A0BE00E23BCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B37F813D2CC1A0BE00E23BCF /* Assets.xcassets */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B34A214A2CC4617300174677 /* NewBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookView.swift; sourceTree = "<group>"; };
+		B34A214C2CC466BE00174677 /* ReviewAndImageStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewAndImageStack.swift; sourceTree = "<group>"; };
 		B37F81362CC1A0BD00E23BCF /* ReadMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B37F81392CC1A0BD00E23BCF /* ReadMeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMeApp.swift; sourceTree = "<group>"; };
 		B37F813B2CC1A0BD00E23BCF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -84,11 +88,13 @@
 		B37F81492CC1A35800E23BCF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B34A214C2CC466BE00174677 /* ReviewAndImageStack.swift */,
 				B37F813B2CC1A0BD00E23BCF /* ContentView.swift */,
 				B37F814A2CC1A36D00E23BCF /* BookViews.swift */,
 				B37F81502CC1AF3B00E23BCF /* DetailView.swift */,
 				B37F814C2CC1AB5600E23BCF /* BookRow.swift */,
 				B37F81522CC1B68100E23BCF /* PHPickerViewController.View.swift */,
+				B34A214A2CC4617300174677 /* NewBookView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,9 +171,11 @@
 			files = (
 				B37F813C2CC1A0BD00E23BCF /* ContentView.swift in Sources */,
 				B37F814D2CC1AB5600E23BCF /* BookRow.swift in Sources */,
+				B34A214B2CC4617300174677 /* NewBookView.swift in Sources */,
 				B37F813A2CC1A0BD00E23BCF /* ReadMeApp.swift in Sources */,
 				B37F81512CC1AF3B00E23BCF /* DetailView.swift in Sources */,
 				B37F81482CC1A2CF00E23BCF /* Book.swift in Sources */,
+				B34A214D2CC466BE00174677 /* ReviewAndImageStack.swift in Sources */,
 				B37F814B2CC1A36D00E23BCF /* BookViews.swift in Sources */,
 				B37F81532CC1B68100E23BCF /* PHPickerViewController.View.swift in Sources */,
 				B37F814F2CC1AD4900E23BCF /* Library.swift in Sources */,
