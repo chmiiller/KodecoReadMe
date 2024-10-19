@@ -25,12 +25,12 @@ struct DetailView: View {
                         Button("Delete image") {
                             showDeleteImageDialog = true
                         }
+                        Spacer()
                     }
                     Button("Update image") {
                         showImagePicker = true
                     }
-                    .padding()
-                }
+                }.padding()
             }
             Spacer()
         }
