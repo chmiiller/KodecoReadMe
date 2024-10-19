@@ -11,6 +11,7 @@ struct NewBookView: View {
     @EnvironmentObject var library: Library
     @ObservedObject var book = Book(title: "", author: "")
     @State var image: Image? = nil
+    @Environment(\.dismiss) var dismiss
 
     var body: some View {
         NavigationView {
@@ -27,8 +28,11 @@ struct NewBookView: View {
             .toolbar {
                 ToolbarItem(placement: .status) {
                     Button("Save") {
-                        library.addNewBook(book, image: image)
-                    }
+                        if !book.title.isEmpty && !book.author.isEmpty {
+                            library.addNewBook(book, image: image)
+                            dismiss()
+                        }
+                    }.disabled(book.title.isEmpty && book.author.isEmpty)
                 }
             }
         }
