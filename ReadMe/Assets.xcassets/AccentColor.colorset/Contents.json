@@ -1,6 +1,36 @@
 {
   "colors" : [
     {
+      "color" : {
+        "platform" : "tvos",
+        "reference" : "systemGreenColor"
+      },
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "light"
+        }
+      ],
+      "color" : {
+        "platform" : "tvos",
+        "reference" : "systemIndigoColor"
+      },
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "color" : {
+        "platform" : "tvos",
+        "reference" : "systemPurpleColor"
+      },
       "idiom" : "universal"
     }
   ],
