@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct DetailView: View {
+    @EnvironmentObject var library: Library
     @ObservedObject var book: Book
-    @Binding var image: Image?
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -22,13 +22,13 @@ struct DetailView: View {
                 TitleAndAuthorStack(book: book, titleFont: .title, authorFont: .title2)
                 
             }
-            ReviewAndImageStack(book: book, image: $image)
+            ReviewAndImageStack(book: book, image: $library.images[book])
             Spacer()
         }
     }
 }
 
 #Preview {
-    DetailView(book: .init(), image: .constant(nil))
+    DetailView(book: .init()).environmentObject(Library())
 }
 

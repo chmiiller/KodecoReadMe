@@ -9,12 +9,12 @@ import SwiftUI
 
 struct BookRow: View {
     @ObservedObject var book: Book
-    @Binding var image: Image?
+    @EnvironmentObject var library: Library
     
     var body: some View {
-        NavigationLink(destination: DetailView(book: book, image: $image)) {
+        NavigationLink(destination: DetailView(book: book)) {
             HStack {
-                Book.Image(image: image, title: book.title, size: 60, cornerRadius: 12)
+                Book.Image(image: library.images[book], title: book.title, size: 60, cornerRadius: 12)
                 VStack(alignment: .leading) {
                     TitleAndAuthorStack(book: book, titleFont: .title2, authorFont: .title3)
                         .lineLimit(1)
@@ -29,6 +29,6 @@ struct BookRow: View {
 }
 
 #Preview {
-    BookRow(book: Book(title: "Moby-Dick", author: "Herman Melville"), image: .constant(nil))
+    BookRow(book: Book(title: "Moby-Dick", author: "Herman Melville")).environmentObject(Library())
 }
 

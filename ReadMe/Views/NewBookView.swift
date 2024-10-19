@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct NewBookView: View {
+    @EnvironmentObject var library: Library
     @ObservedObject var book = Book(title: "", author: "")
     @State var image: Image? = nil
 
@@ -26,7 +27,7 @@ struct NewBookView: View {
             .toolbar {
                 ToolbarItem(placement: .status) {
                     Button("Save") {
-                        print("add new book")
+                        library.addNewBook(book, image: image)
                     }
                 }
             }
@@ -35,5 +36,5 @@ struct NewBookView: View {
 }
 
 #Preview {
-    NewBookView()
+    NewBookView().environmentObject(Library())
 }

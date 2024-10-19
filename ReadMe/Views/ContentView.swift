@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var library = Library()
+    @EnvironmentObject var library: Library
     @State var addingNewBook: Bool = false
 
     var body: some View {
         NavigationView {
-            List(library.sortedBooks) { book in
-                BookRow(book: book, image: $library.images[book])
-            }
+            List(library.sortedBooks) { BookRow(book: $0) }
             .navigationTitle("My Books")
             .toolbar(content: {
                 Button(action: {
@@ -32,5 +30,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    ContentView().environmentObject(Library())
 }
