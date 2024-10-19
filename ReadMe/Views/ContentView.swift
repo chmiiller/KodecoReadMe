@@ -12,7 +12,7 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            List(library.sortedBooks, id: \.self) { book in
+            List(library.sortedBooks) { book in
                 BookRow(book: book, image: $library.images[book])
             }
             .navigationTitle("My Books")

@@ -5,7 +5,7 @@
 //  Created by Carlos Zinato on 17/10/2024.
 //
 
-struct Book: Hashable {
+class Book {
     let title: String
     let author: String
     
@@ -13,4 +13,18 @@ struct Book: Hashable {
         self.title = title
         self.author = author
     }
+}
+
+extension Book: Hashable, Identifiable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}
+
+extension Book: Equatable {
+    static func == (lhs: Book, rhs: Book) -> Bool {
+        lhs === rhs
+    }
+    
+    
 }
