@@ -51,6 +51,7 @@ private struct SectionView: View {
             Section {
                 ForEach(books) { book in
                     BookRow(book: book)
+                        // Swipe right to mark as done or to read
                         .swipeActions(edge: .leading) {
                             Button(action: {
                                 withAnimation {
@@ -59,10 +60,24 @@ private struct SectionView: View {
                                 }
                             }, label: {
                                 book.readMe ?
-                                Label("Finished", systemImage: "checkmark.circle.fill") :
-                                Label("Read", systemImage: "bookmark")
+                                Label("Done", systemImage: "checkmark.circle.fill") :
+                                Label("To Read", systemImage: "bookmark")
                             })
+                            .tint(.accentColor)
                         }
+                        // Swipe left to delete
+                        .swipeActions(edge: .trailing) {
+                            Button(role: .destructive) {
+                                withAnimation {
+                                    book.readMe.toggle()
+                                    library.sortBooks()
+                                }
+                            } label: {
+                                Label("Delete", systemImage: "trash.fill")
+                            }
+
+                        }
+                    
                 }
             } header: {
                 Text(sectionTitle)

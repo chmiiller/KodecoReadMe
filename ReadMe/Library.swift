@@ -52,6 +52,10 @@ class Library: ObservableObject {
         objectWillChange.send()
     }
     
+    func deleteBook() {
+        
+    }
+    
     /// Adds a new book at the start of the library's manually-sorted books.
     func addNewBook(_ book: Book, image: Image?) {
         booksCache.insert(book, at: 0)
