@@ -25,6 +25,11 @@ struct DetailView: View {
             ReviewAndImageStack(book: book, image: $library.images[book])
             Spacer()
         }
+        .onDisappear {
+            withAnimation {
+                library.sortBooks()
+            }
+        }
     }
 }
 
