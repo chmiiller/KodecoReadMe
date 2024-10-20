@@ -49,7 +49,21 @@ private struct SectionView: View {
     var body: some View {
         if let books = library.sortedBooks[section] {
             Section {
-                ForEach(books) { BookRow(book: $0) }
+                ForEach(books) { book in
+                    BookRow(book: book)
+                        .swipeActions(edge: .leading) {
+                            Button(action: {
+                                withAnimation {
+                                    book.readMe.toggle()
+                                    library.sortBooks()
+                                }
+                            }, label: {
+                                book.readMe ?
+                                Label("Finished", systemImage: "checkmark.circle.fill") :
+                                Label("Read", systemImage: "bookmark")
+                            })
+                        }
+                }
             } header: {
                 Text(sectionTitle)
                     .listRowInsets(.some(.init()))
