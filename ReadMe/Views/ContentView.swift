@@ -68,9 +68,10 @@ private struct SectionView: View {
                         // Swipe left to delete
                         .swipeActions(edge: .trailing) {
                             Button(role: .destructive) {
+                                guard let bookIndex = books.firstIndex(where: { $0.id == book.id })
+                                else { return }
                                 withAnimation {
-                                    book.readMe.toggle()
-                                    library.sortBooks()
+                                    library.deleteBook(index: bookIndex, section: section)
                                 }
                             } label: {
                                 Label("Delete", systemImage: "trash.fill")

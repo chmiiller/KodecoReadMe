@@ -39,10 +39,15 @@ enum BookSection: CaseIterable {
 
 class Library: ObservableObject {
     var sortedBooks: [BookSection: [Book]] {
-        let groupedBooks = Dictionary(grouping: booksCache, by: \.readMe)
-        return Dictionary(uniqueKeysWithValues: groupedBooks.map {
-            (($0.key ? .readMe : .finished),$0.value)
-        })
+        get {
+            let groupedBooks = Dictionary(grouping: booksCache, by: \.readMe)
+            return Dictionary(uniqueKeysWithValues: groupedBooks.map {
+                (($0.key ? .readMe : .finished),$0.value)
+            })
+        }
+        set {
+            
+        }
     }
     
     func sortBooks() {
@@ -52,8 +57,16 @@ class Library: ObservableObject {
         objectWillChange.send()
     }
     
-    func deleteBook() {
-        
+    func deleteBook(index: Int, section: BookSection) {
+        if let bookToDelete = sortedBooks[section]?[index] {
+            if let indexAtCache = booksCache.firstIndex(of: bookToDelete) {
+                booksCache.remove(at: indexAtCache)
+            }
+            if let imageIndex = images.firstIndex(where: { $0.key.id == bookToDelete.id }) {
+                images.removeValue(forKey: bookToDelete)
+            }
+            sortedBooks[section]?.remove(at: index)
+        }
     }
     
     /// Adds a new book at the start of the library's manually-sorted books.
