@@ -77,17 +77,11 @@ class Library: ObservableObject {
 
     /// An in-memory cache of the manually-sorted books.
     @Published private var booksCache: [Book] = [
-        .init(title: "Ein Neues Land", author: "Shaun Tan"),
-        .init(title: "Bosch", author: "Laurinda Dixon", microReview: "Earthily Delightful."),
-        .init(title: "Dare to Lead", author: "Brené Brown"),
-        .init(title: "Blasting for Optimum Health Recipe Book", author: "NutriBullet"),
-        .init(title: "Drinking with the Saints", author: "Michael P. Foley", microReview: "One of Ozma's favorites! 😻"),
-        .init(title: "A Guide to Tea", author: "Adagio Teas"),
-        .init(title: "The Life and Complete Work of Francisco Goya", author: "P. Gassier & J Wilson", microReview: "Book too large for a micro-review!"),
-        .init(title: "Lady Cottington's Pressed Fairy Book", author: "Lady Cottington"),
-        .init(title: "How to Draw Cats", author: "Janet Rancan"),
-        .init(title: "Drawing People", author: "Barbara Bradley"),
-        .init(title: "What to Say When You Talk to Yourself", author: "Shad Helmstetter")
+        .init(title: "Invisible Women", author: "Caroline Criado Perez"),
+        .init(title: "Cem anos de solidão", author: "Gabriel Garcia Marques"),
+        .init(title: "Moby Dick", author: "Herman Melville"),
+        .init(title: "Ensaio sobre a cegueira", author: "José Saramago"),
+        .init(title: "Genesis", author: "Sebastião Salgado")
     ]
     @Published var images: [Book: Image] = [:]
 }
